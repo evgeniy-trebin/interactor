@@ -1,8 +1,10 @@
-if ENV["CODECLIMATE_REPO_TOKEN"]
-  require "simplecov"
+# frozen_string_literal: true
+
+if ENV['CODECLIMATE_REPO_TOKEN']
+  require 'simplecov'
   SimpleCov.start
 end
 
-require "interactor"
+require 'interactor'
 
-Dir[File.expand_path("../support/*.rb", __FILE__)].each { |f| require f }
+Dir[File.expand_path('../support/*.rb', __FILE__)].each { |f| require f }

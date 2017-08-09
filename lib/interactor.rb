@@ -1,7 +1,9 @@
-require "interactor/context"
-require "interactor/error"
-require "interactor/hooks"
-require "interactor/organizer"
+# frozen_string_literal: true
+
+require 'interactor/context'
+require 'interactor/error'
+require 'interactor/hooks'
+require 'interactor/organizer'
 
 # Public: Interactor methods. Because Interactor is a module, custom Interactor
 # classes should include Interactor rather than inherit from it.
@@ -114,6 +116,7 @@ module Interactor
   def run
     run!
   rescue Failure
+    nil
   end
 
   # Internal: Invoke an Interactor instance along with all defined hooks. The
@@ -153,14 +156,12 @@ module Interactor
   # each interactor class.
   #
   # Returns nothing.
-  def call
-  end
+  def call; end
 
   # Public: Reverse prior invocation of an Interactor instance. Any interactor
   # class that requires undoing upon downstream failure is expected to overwrite
   # the "rollback" instance method.
   #
   # Returns nothing.
-  def rollback
-  end
+  def rollback; end
 end

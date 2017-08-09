@@ -1,0 +1,68 @@
+AllCops:
+  TargetRubyVersion: 2.4
+
+ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/BlockLength:
+  CountComments: false
+  Max: 10
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'interactor.gemspec'
+
+
+Metrics/ModuleLength:
+  Max: 100
+  Exclude:
+    - 'spec/**/*.rb'
+
+Metrics/AbcSize:
+  Max: 22
+
+Style/Documentation:
+  Enabled: false
+
+Style/MultilineMethodCallIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+
+Style/MultilineOperationIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+
+Style/MultilineHashBraceLayout:
+  Enabled: true
+  EnforcedStyle: symmetrical
+
+Style/MultilineArrayBraceLayout:
+  Enabled: true
+  EnforcedStyle: symmetrical
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/NumericLiteralPrefix:
+  Enabled: false
+
+Style/EmptyLinesAroundClassBody:
+  Enabled: true
+  EnforcedStyle: empty_lines
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false

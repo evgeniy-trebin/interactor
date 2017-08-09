@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 module Interactor
   # Internal: Error raised during Interactor::Context failure. The error stores
   # a copy of the failed context for debugging purposes.
   class Failure < StandardError
+
     # Internal: Gets the Interactor::Context of the Interactor::Failure
     # instance.
     attr_reader :context
@@ -27,5 +30,6 @@ module Interactor
       @context = context
       super
     end
+
   end
 end

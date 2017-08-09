@@ -1,4 +1,6 @@
-require "ostruct"
+# frozen_string_literal: true
+
+require 'ostruct'
 
 module Interactor
   # Public: The object for tracking state of an Interactor's invocation. The
@@ -29,6 +31,7 @@ module Interactor
   #   context
   #   # => #<Interactor::Context foo="baz" hello="world">
   class Context < OpenStruct
+
     # Internal: Initialize an Interactor::Context or preserve an existing one.
     # If the argument given is an Interactor::Context, the argument is returned.
     # Otherwise, a new Interactor::Context is initialized from the provided
@@ -53,7 +56,7 @@ module Interactor
     #
     # Returns the Interactor::Context.
     def self.build(context = {})
-      self === context ? context : new(context)
+      context.is_a?(self) ? context : new(context)
     end
 
     # Public: Whether the Interactor::Context is successful. By default, a new
@@ -177,5 +180,6 @@ module Interactor
     def _called
       @called ||= []
     end
+
   end
 end
