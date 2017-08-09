@@ -1,32 +1,24 @@
-after_success:
-  - bundle exec codeclimate-test-reporter
+addons:
+  code_climate:
+    repo_token:
+      secure: 'i146lmmBHbhAAoThe1C1L6bEvVpWBlB5IyBG+Uvlcgtb1GJGrm3LN4BQPyHYKAxCPSAz14viKFJC7xZ+TfFxHP0vkjV2+NjJtU3fcW220IFRV0Xx3hgDVi1e3yvXFrhJPxX6I3D9UNgONqgxMDAcGwJmzJt7EPuR3Vlolu7STPuDN89ybzJHRJgp4Ai6b+skdETzD3ZJusTsAHyGhSAYLqNGyMtJs69Vogjdudt1qA8wwgchXqWCYycRhZGj9cztadYvsYfA49YASCHASu3OhRIWd7LGLCFy9tj/wGngGkQThaOUVbKodBMAhYIW+uAQP5Jlat1VYgtHmSJzdWaGbVEpv9uMS3wcNI3n4uV3sS9NyJazgjPQN5VnCPOKJsval1Fp0QV/RbWV+fMxxsnXfUWUjCUklqqpbUDXnboqY2Y2RDzfSvM4b3tUxj3AHvj9nNuy7QA12clJg9QE5Q23cqOHsDkbRnhPT99pc6JxX3vgyAOzjz6L5Hy3xQSc+RtQ6Q5tfZ9owbfDSpsWVBR+b49HPQHJIoZN4bAuhm3TAucM0mf9Zeaa8vgmcSXm6Hwhv+RN2S6DrVwrw9vFL8JAgRuaa0SMrKywgQeGfC+dXrK3vHMr72nAKbEf9beAZgRfoR0OqJ49xPAxCm666TeD6ssolcKUGpqacNZ7dS0mHVw='
 before_install:
   - gem update bundler rake
 branches:
   only:
     - master
-    - v3
-env:
-  global:
-    - secure: | # CODECLIMATE_REPO_TOKEN
-        BIemhM273wHZMpuULDMYGPsxYdfw+NMw7IQbOD6gy5r+dha07y9ssTYYE5Gn
-        t1ptAb09lhQ4gexXTr83i6angMrnHgQ1ZX2wfeoZ0FvWDHQht9YkXyiNH+R6
-        odHUeDIYAlUiqLX9nAkklL89Rc22BrHMGGNyuA8Uc5sktW5P/FE=
 language: ruby
 matrix:
   allow_failures:
     - rvm: ruby-head
-notifications:
-  webhooks:
-    on_start: always
-    urls:
-      - http://buildlight.collectiveidea.com/
 rvm:
-  - 1.9.3
-  - "2.0"
-  - "2.1"
-  - "2.2"
-  - "2.3.3"
-  - "2.4.0"
+  - '2.0'
+  - '2.1'
+  - '2.2'
+  - '2.3.3'
+  - '2.4.0'
+  - '2.4.1'
   - ruby-head
-script: bundle exec rspec
+script:
+  - bundle exec rspec
+  - bundle exec rubocop
