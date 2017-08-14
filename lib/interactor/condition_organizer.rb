@@ -110,9 +110,17 @@ module Interactor
       # Returns nothing.
       def call
         self.class.condition_organized.each do |interactor|
-          condition_method = "#{interactor.to_s.underscore}_condition"
+          condition_method = "#{underscore(interactor.to_s)}_condition"
           interactor.call!(context) if public_send(condition_method, context)
         end
+      end
+
+      def underscore(string)
+        string.gsub(/::/, '/')
+          .gsub(/([A-Z]+)([A-Z][a-z])/, '\1_\2')
+          .gsub(/([a-z\d])([A-Z])/, '\1_\2')
+          .tr('-', '_')
+          .downcase
       end
     end
   end
