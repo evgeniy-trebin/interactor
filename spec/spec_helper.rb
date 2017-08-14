@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'codeclimate-test-reporter'
 if ENV['CODECLIMATE_REPO_TOKEN']
   require 'simplecov'
   SimpleCov.start
